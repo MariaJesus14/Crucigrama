@@ -5,12 +5,15 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
  */
 public class Ingreso extends javax.swing.JDialog {
-
+   private String [] users;
+   private int counter;
     /**
      * Creates new form Ingreso
      */
@@ -29,24 +32,108 @@ public class Ingreso extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbUsuario = new javax.swing.JLabel();
+        lbContraseña = new javax.swing.JLabel();
+        tfUsuario = new javax.swing.JTextField();
+        pfContraseña = new javax.swing.JPasswordField();
+        btinscribir = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        lbUsuario.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
+        lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lbUsuario.setText("Usuario");
+
+        lbContraseña.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
+        lbContraseña.setForeground(new java.awt.Color(0, 0, 0));
+        lbContraseña.setText("Contraseña");
+
+        tfUsuario.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
+        tfUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        tfUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfUsuarioActionPerformed(evt);
+            }
+        });
+
+        pfContraseña.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
+        pfContraseña.setForeground(new java.awt.Color(0, 0, 0));
+        pfContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pfContraseñaActionPerformed(evt);
+            }
+        });
+
+        btinscribir.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
+        btinscribir.setForeground(new java.awt.Color(0, 0, 0));
+        btinscribir.setText("Inscribir");
+        btinscribir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btinscribirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbUsuario)
+                    .addComponent(lbContraseña))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfUsuario)
+                    .addComponent(pfContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btinscribir)
+                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbUsuario)
+                    .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbContraseña)
+                    .addComponent(pfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btinscribir)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void tfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfUsuarioActionPerformed
+
+    private void pfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pfContraseñaActionPerformed
+
+    private void btinscribirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btinscribirMouseClicked
+       String user= new String(tfUsuario.getText());
+       String pass= new String (pfContraseña.getPassword());
+        if (user.length()<4 || pass.length()<3) {
+            JOptionPane.showMessageDialog(null, "Invalido "+"\n"+" Por favor ingrese un USUARIO de al menos 8 caracteres y una CONTRASEÑA de al menos 3 caracteres ");
+        }
+    }//GEN-LAST:event_btinscribirMouseClicked
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btinscribir;
+    private javax.swing.JLabel lbContraseña;
+    private javax.swing.JLabel lbUsuario;
+    private javax.swing.JPasswordField pfContraseña;
+    private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }
