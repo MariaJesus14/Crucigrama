@@ -6,6 +6,7 @@
 package main;
 
 import View.Start;
+import dataset.UsersList;
 
 /**
  *
@@ -13,9 +14,8 @@ import View.Start;
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
+   
+    public static UsersList listManager = new UsersList ();
     public static void main(String[] args) {
        Start start = new Start();
        start.setVisible(true);

@@ -5,6 +5,9 @@
  */
 package View;
 
+import filemanager.WriterManager;
+import java.io.IOException;
+
 /**
  *
  * @author Usuario
@@ -34,6 +37,7 @@ public class Start extends javax.swing.JFrame {
         lbRoibin = new javax.swing.JLabel();
         btIngresar = new javax.swing.JButton();
         btIncribir = new javax.swing.JButton();
+        btSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -67,6 +71,15 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
+        btSalir.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        btSalir.setForeground(new java.awt.Color(0, 0, 0));
+        btSalir.setText("Salir");
+        btSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,19 +88,21 @@ public class Start extends javax.swing.JFrame {
                 .addContainerGap(107, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbMaria)
                             .addComponent(lbJerry)
                             .addComponent(lbRoibin))
-                        .addGap(247, 247, 247))))
+                        .addGap(247, 247, 247))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(143, 143, 143)
+                .addGap(69, 69, 69)
                 .addComponent(btIncribir)
-                .addGap(98, 98, 98)
+                .addGap(48, 48, 48)
                 .addComponent(btIngresar)
+                .addGap(50, 50, 50)
+                .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,9 +119,12 @@ public class Start extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btIncribir)
-                    .addComponent(btIngresar))
+                    .addComponent(btIngresar)
+                    .addComponent(btSalir))
                 .addGap(48, 48, 48))
         );
+
+        btSalir.getAccessibleContext().setAccessibleName("Salir");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,11 +134,26 @@ public class Start extends javax.swing.JFrame {
        ingre.setVisible(true);
     }//GEN-LAST:event_btIncribirActionPerformed
 
+    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
+        WriterManager writer = new WriterManager();
+        try {
+            writer.open("userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+            writer.write();
+            writer.close(); //importante cerrar el archivo 
+            System.out.println("Escritura exitosa");
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            //ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btSalirActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIncribir;
     private javax.swing.JButton btIngresar;
+    private javax.swing.JButton btSalir;
     private javax.swing.JLabel lbJerry;
     private javax.swing.JLabel lbMaria;
     private javax.swing.JLabel lbRoibin;
