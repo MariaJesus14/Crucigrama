@@ -5,7 +5,11 @@
  */
 package View;
 
+import filemanager.ReaderManager;
+import java.io.IOException;
 import javax.swing.JOptionPane;
+import static main.Main.listManager;
+import model.User;
 
 /**
  *
@@ -72,6 +76,11 @@ public class Ingreso extends javax.swing.JDialog {
                 btinscribirMouseClicked(evt);
             }
         });
+        btinscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btinscribirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,9 +132,35 @@ public class Ingreso extends javax.swing.JDialog {
        String user= new String(tfUsuario.getText());
        String pass= new String (pfContraseña.getPassword());
         if (user.length()<4 || pass.length()<3) {
-            JOptionPane.showMessageDialog(null, "Invalido "+"\n"+" Por favor ingrese un USUARIO de al menos 8 caracteres y una CONTRASEÑA de al menos 3 caracteres ");
+            JOptionPane.showMessageDialog(null, "Invalido "+"\n"+" Por favor ingrese un USUARIO de al menos 4 caracteres y una CONTRASEÑA de al menos 3 caracteres ");
         }
     }//GEN-LAST:event_btinscribirMouseClicked
+
+    private void btinscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinscribirActionPerformed
+         ReaderManager reader = new ReaderManager();
+        try {
+            reader.open("userFile.ser");
+            listManager = reader.read();
+            reader.close(); 
+            
+            System.out.println("Lectura exitosa");
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+           
+        } catch (ClassNotFoundException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+           
+        }
+        int size = listManager.getSize();
+        for (int i = size; i < size + 5; i++) {
+            listManager.addUser(new User (" " + i, " "+ i));
+            
+        }
+       
+        dispose();
+    }//GEN-LAST:event_btinscribirActionPerformed
 
 
 

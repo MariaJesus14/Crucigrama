@@ -44,12 +44,12 @@ public class UsersList implements Serializable{
         return count;
     }
 
-    public User getStudent(int index) {
+    public User getUser(int index) {
         return vecUser[index];
     }
 
-    public void addStudent(User student) {
-        vecUser[count++] = student;
+    public void addUser(User user) {
+        vecUser[count++] = user;
     }
 
     public String getListString() {

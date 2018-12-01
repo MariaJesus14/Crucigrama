@@ -38,13 +38,14 @@ public class Start extends javax.swing.JFrame {
         btIngresar = new javax.swing.JButton();
         btIncribir = new javax.swing.JButton();
         btSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
 
         lbWelcome.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 24)); // NOI18N
         lbWelcome.setForeground(new java.awt.Color(0, 0, 0));
-        lbWelcome.setText("BIENVENIDO AL CRUCIGRAMA");
+        lbWelcome.setText("BIENVENIDO AL JUEGO ");
 
         lbJerry.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         lbJerry.setForeground(new java.awt.Color(0, 0, 0));
@@ -80,51 +81,58 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("<CRUCIGRAMA>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btIncribir)
+                        .addGap(48, 48, 48)
+                        .addComponent(btIngresar)
+                        .addGap(50, 50, 50)
+                        .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(124, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(208, 208, 208))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbMaria)
-                            .addComponent(lbJerry)
-                            .addComponent(lbRoibin))
-                        .addGap(247, 247, 247))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(btIncribir)
-                .addGap(48, 48, 48)
-                .addComponent(btIngresar)
-                .addGap(50, 50, 50)
-                .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbRoibin)
+                            .addComponent(lbJerry))
+                        .addGap(247, 247, 247))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(lbWelcome)
-                .addGap(37, 37, 37)
+                .addGap(25, 25, 25)
+                .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
                 .addComponent(lbJerry)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMaria)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbRoibin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btIncribir)
                     .addComponent(btIngresar)
                     .addComponent(btSalir))
                 .addGap(48, 48, 48))
         );
-
-        btSalir.getAccessibleContext().setAccessibleName("Salir");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,15 +145,17 @@ public class Start extends javax.swing.JFrame {
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
         WriterManager writer = new WriterManager();
         try {
-            writer.open("userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+            writer.open("userFile.ser"); 
             writer.write();
-            writer.close(); //importante cerrar el archivo 
+            writer.close(); 
             System.out.println("Escritura exitosa");
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            //ex.printStackTrace();
+            
         }
+          dispose ();
+        
     }//GEN-LAST:event_btSalirActionPerformed
 
    
@@ -154,6 +164,7 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JButton btIncribir;
     private javax.swing.JButton btIngresar;
     private javax.swing.JButton btSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbJerry;
     private javax.swing.JLabel lbMaria;
     private javax.swing.JLabel lbRoibin;
