@@ -17,6 +17,7 @@ public class Instructions extends javax.swing.JDialog {
     public Instructions(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(parent);
     }
 
     /**
@@ -52,15 +53,15 @@ public class Instructions extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("El juego consiste en averiguar una palabra, colocando cada letra ");
+        jLabel2.setText("El juego consiste en averiguar una palabra, colocando unicamente ");
 
         jLabel3.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("en la casilla correspondiente, solo podra ingresar letras en ");
+        jLabel3.setText("una letra en cada casilla correspondiente, solo podra ingresar letras  ");
 
         jLabel4.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("en MAYUSCULA y sin tildes, cada palabra cuenta con una pista");
+        jLabel4.setText("en MAYUSCULA y sin tildes, cada palabra cuenta con una pista.");
 
         jButton2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
@@ -75,7 +76,7 @@ public class Instructions extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -83,15 +84,17 @@ public class Instructions extends javax.swing.JDialog {
                         .addGap(108, 108, 108))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addGap(68, 68, 68))))
+                                .addComponent(jButton1))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +118,8 @@ public class Instructions extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
+        Levels levels = new Levels(this, true);
+        levels.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
