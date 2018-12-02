@@ -5,7 +5,7 @@
  */
 package View;
 
-import filemanager.WriterManager;
+import filemanager.WriterManagerbin;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
@@ -40,6 +40,7 @@ public class Start extends javax.swing.JFrame {
         btIncribir = new javax.swing.JButton();
         btSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -91,33 +92,45 @@ public class Start extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("<CRUCIGRAMA>");
 
+        jButton1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Instrucciones");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btIncribir)
-                        .addGap(48, 48, 48)
-                        .addComponent(btIngresar)
-                        .addGap(50, 50, 50)
-                        .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(btIncribir)
+                .addGap(39, 39, 39)
+                .addComponent(jButton1)
+                .addGap(30, 30, 30)
+                .addComponent(btIngresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(231, 231, 231))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(208, 208, 208))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbMaria)
-                            .addComponent(lbRoibin)
-                            .addComponent(lbJerry))
-                        .addGap(247, 247, 247))))
+                            .addComponent(lbJerry)
+                            .addComponent(lbRoibin))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,12 +143,13 @@ public class Start extends javax.swing.JFrame {
                 .addComponent(lbJerry)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMaria)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbRoibin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btIncribir)
                     .addComponent(btIngresar)
+                    .addComponent(jButton1)
                     .addComponent(btSalir))
                 .addGap(48, 48, 48))
         );
@@ -149,7 +163,7 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_btIncribirActionPerformed
 
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
-        WriterManager writer = new WriterManager();
+        WriterManagerbin writer = new WriterManagerbin();
         try {
             writer.open("userFile.ser"); 
             writer.write();
@@ -172,9 +186,14 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalirActionPerformed
 
     private void btIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIngresarActionPerformed
+        Levels level = new Levels(this, true);
+        level.setVisible(true);
+    }//GEN-LAST:event_btIngresarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Instructions inst = new Instructions(this, true);
         inst.setVisible(true);
-    }//GEN-LAST:event_btIngresarActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
 
@@ -182,6 +201,7 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JButton btIncribir;
     private javax.swing.JButton btIngresar;
     private javax.swing.JButton btSalir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbJerry;
     private javax.swing.JLabel lbMaria;

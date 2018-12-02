@@ -5,7 +5,7 @@
  */
 package View;
 
-import filemanager.ReaderManager;
+import filemanager.ReaderManagerbin;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import static main.Main.listManager;
@@ -162,7 +162,7 @@ public class Ingreso extends javax.swing.JDialog {
     }//GEN-LAST:event_btinscribirMouseClicked
 
     private void btinscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinscribirActionPerformed
-         ReaderManager reader = new ReaderManager();
+         ReaderManagerbin reader = new ReaderManagerbin();
         try {
             reader.open("userFile.ser");
             listManager = reader.read();
