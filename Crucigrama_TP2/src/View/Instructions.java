@@ -52,7 +52,7 @@ public class Instructions extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("El juego consiste en averiguar la palabra, colocando una letra ");
+        jLabel2.setText("El juego consiste en averiguar una palabra, colocando cada letra ");
 
         jLabel3.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -60,7 +60,7 @@ public class Instructions extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("en MAYUSCULA y sin tilde, cada palabra cuenta con una pista");
+        jLabel4.setText("en MAYUSCULA y sin tildes, cada palabra cuenta con una pista");
 
         jButton2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
