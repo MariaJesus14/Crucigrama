@@ -7,6 +7,7 @@ package View;
 
 import filemanager.WriterManager;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -159,7 +160,11 @@ public class Start extends javax.swing.JFrame {
             System.err.println(ex.getMessage());
             
         }
-          dispose ();
+           int option= JOptionPane.showConfirmDialog(null, "¿Esta seguro de que desea salir?","",JOptionPane.YES_NO_OPTION);
+           if (option==1) {
+            dispose ();
+        }
+          
         
     }//GEN-LAST:event_btSalirActionPerformed
 

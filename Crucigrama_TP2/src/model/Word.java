@@ -24,5 +24,7 @@ public class Word {
     private int numword;
     private final static String V= "V";
     private final static String H= "H";
+    private String word;
+    private String track;
     
 }
