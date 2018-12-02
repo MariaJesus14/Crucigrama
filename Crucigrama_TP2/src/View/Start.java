@@ -162,8 +162,11 @@ public class Start extends javax.swing.JFrame {
         }
            int option= JOptionPane.showConfirmDialog(null, "¿Esta seguro de que desea salir?","",JOptionPane.YES_NO_OPTION);
            if (option==1) {
-            dispose ();
-        }
+           
+        }else{
+                dispose ();
+           }
+           
           
         
     }//GEN-LAST:event_btSalirActionPerformed
