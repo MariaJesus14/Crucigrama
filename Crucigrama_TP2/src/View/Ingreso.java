@@ -59,12 +59,22 @@ public class Ingreso extends javax.swing.JDialog {
                 tfUsuarioActionPerformed(evt);
             }
         });
+        tfUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfUsuarioKeyTyped(evt);
+            }
+        });
 
         pfContraseña.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         pfContraseña.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pfContraseñaActionPerformed(evt);
+            }
+        });
+        pfContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pfContraseñaKeyTyped(evt);
             }
         });
 
@@ -161,6 +171,14 @@ public class Ingreso extends javax.swing.JDialog {
        
         dispose();
     }//GEN-LAST:event_btinscribirActionPerformed
+
+    private void tfUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfUsuarioKeyTyped
+               
+    }//GEN-LAST:event_tfUsuarioKeyTyped
+
+    private void pfContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pfContraseñaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pfContraseñaKeyTyped
 
 
 

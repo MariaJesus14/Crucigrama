@@ -62,6 +62,11 @@ public class Start extends javax.swing.JFrame {
         btIngresar.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
         btIngresar.setForeground(new java.awt.Color(0, 0, 0));
         btIngresar.setText("Ingresar");
+        btIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btIngresarActionPerformed(evt);
+            }
+        });
 
         btIncribir.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
         btIncribir.setForeground(new java.awt.Color(0, 0, 0));
@@ -157,6 +162,11 @@ public class Start extends javax.swing.JFrame {
           dispose ();
         
     }//GEN-LAST:event_btSalirActionPerformed
+
+    private void btIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIngresarActionPerformed
+        Instructions inst = new Instructions(this, true);
+        inst.setVisible(true);
+    }//GEN-LAST:event_btIngresarActionPerformed
 
    
 
