@@ -1,11 +1,11 @@
-package filemanager;
+package fileManager;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import main.Main;
 
-public class WriterManager {
+public class WriterManagerbin {
 
     private ObjectOutputStream writer;
 

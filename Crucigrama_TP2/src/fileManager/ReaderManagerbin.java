@@ -1,11 +1,11 @@
-package filemanager;
+package fileManager;
 
 import dataset.UsersList;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-public class ReaderManager {
+public class ReaderManagerbin {
 
     private ObjectInputStream reader;
 
