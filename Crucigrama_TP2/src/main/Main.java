@@ -7,6 +7,7 @@ package main;
 
 import View.Start;
 import dataset.UsersList;
+import View.Logic;
 
 /**
  *
@@ -17,7 +18,9 @@ public class Main {
    
     public static UsersList listManager = new UsersList ();
     public static void main(String[] args) {
+       Logic logic = new Logic();
        Start start = new Start();
+       logic.checkInput();
        start.setVisible(true);
     }
     
