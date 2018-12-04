@@ -5,7 +5,7 @@
  */
 package View;
 
-import filemanager.ReaderManagerbin;
+import fileManager.ReaderManagerbin;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import static main.Main.listManager;

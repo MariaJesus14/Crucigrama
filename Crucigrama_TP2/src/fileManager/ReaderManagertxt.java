@@ -1,5 +1,6 @@
 package fileManager;
 
+import dataset.WordList;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,17 +20,22 @@ public class ReaderManagertxt {
     public Word read() throws IOException {
         Word word = null;
         String line = reader.readLine(); 
-        String [] datos;
+        WordList wl = new WordList();
+      
+        String [] datosWord;
+        String [] datosPosition;
         if (line != null) {
             word = new Word();
-            datos = line.split("-");
+            datosWord = line.split("/");
+            datosPosition= line.split("-");
 //            word.setRow(datos[0]);
 //            word.setColumn(datos[1]);
 //           word.setInitialindex(datos[2]);
 //           word.setFinalindex(datos[3]);
 //            word.setNumword(datos[4]);
-            word.setWord(datos[0]);
-            word.setTrack(datos[1]);
+            word.setWord(datosWord[0]);
+            word.setTrack(datosWord[1]);
+            
             
         }
         return word;

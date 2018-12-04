@@ -1,4 +1,4 @@
-package filemanager;
+package fileManager;
 
 import dataset.UsersList;
 import java.io.FileInputStream;

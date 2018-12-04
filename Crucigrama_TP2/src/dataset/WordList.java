@@ -21,6 +21,12 @@ public class WordList {
     private int finalindex;
     private int numwordV;
     private int numwordH;
+    String rows= Integer.toString(row);
+    String columns= Integer.toString(column);
+    String initialindexs=Integer.toString(initialindex);
+    String finalindexs=Integer.toString(finalindex);
+    String numwordsH=Integer.toString(numwordH);
+    String numwordsV=Integer.toString(numwordV);
 
     public WordList() {
     }
@@ -49,47 +55,47 @@ public class WordList {
         return row;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setRow(String row) {
+        this.rows = row;
     }
 
     public int getColumn() {
         return column;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+    public void setColumn(String column) {
+        this.columns= column;
     }
 
     public int getInitialindex() {
         return initialindex;
     }
 
-    public void setInitialindex(int initialindex) {
-        this.initialindex = initialindex;
+    public void setInitialindex(String initialindex) {
+        this.initialindexs = initialindex;
     }
 
     public int getFinalindex() {
         return finalindex;
     }
 
-    public void setFinalindex(int finalindex) {
-        this.finalindex= finalindex;
+    public void setFinalindex(String finalindex) {
+        this.finalindexs= finalindex;
     }
 
     public int getNumwordV() {
         return numwordV;
     }
 
-    public void setNumwordV(int numword) {
-        this.numwordV = numword;
+    public void setNumwordV(String numword) {
+        this.numwordsV = numword;
     }
     public int getNumwordH() {
         return numwordH;
     }
 
-    public void setNumwordH(int numword) {
-        this.numwordH = numword;
+    public void setNumwordH(String numword) {
+        this.numwordsH = numword;
     }
 //    public void createMatrix (){
 //        matrix [row][column];
