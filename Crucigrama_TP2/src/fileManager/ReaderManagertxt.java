@@ -1,4 +1,4 @@
-package filemanager;
+package fileManager;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,13 +23,13 @@ public class ReaderManagertxt {
         if (line != null) {
             word = new Word();
             datos = line.split("-");
-            word.setRow(datos[0]);
-            word.setColumn(datos[1]);
-           word.setInitialindex(datos[2]);
-           word.setFinalindex(datos[3]);
-            word.setNumword(datos[4]);
-            word.setWord(datos[5]);
-            word.setTrack(datos[6]);
+//            word.setRow(datos[0]);
+//            word.setColumn(datos[1]);
+//           word.setInitialindex(datos[2]);
+//           word.setFinalindex(datos[3]);
+//            word.setNumword(datos[4]);
+            word.setWord(datos[0]);
+            word.setTrack(datos[1]);
             
         }
         return word;
