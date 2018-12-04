@@ -24,8 +24,8 @@ public class Game extends javax.swing.JDialog {
     }
     private void initPanel (){
          int column;
-         int rows;
-         GridLayout grid = new GridLayout (rows, columns);
+//         int rows;
+//         GridLayout grid = new GridLayout (rows, columns);
          
          
          TextField text = new TextField();
@@ -45,6 +45,8 @@ public class Game extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        pnMatrix.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout pnMatrixLayout = new javax.swing.GroupLayout(pnMatrix);
         pnMatrix.setLayout(pnMatrixLayout);

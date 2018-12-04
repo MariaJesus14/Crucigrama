@@ -1,4 +1,4 @@
-package filemanager;
+package fileManager;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

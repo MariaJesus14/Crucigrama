@@ -91,10 +91,10 @@ public class WordList {
     public void setNumwordH(int numword) {
         this.numwordH = numword;
     }
-    public void createMatrix (){
-        matrix [row][column];
-        
-    }
+//    public void createMatrix (){
+//        matrix [row][column];
+//        
+//    }
      public String toFileString(){
     return row+"-"+column+"-"+initialindex+"-"+finalindex+"-"+numwordH+"-"+numwordV;
      }

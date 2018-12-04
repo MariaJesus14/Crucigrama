@@ -5,7 +5,7 @@
  */
 package View;
 
-import filemanager.WriterManagerbin;
+import fileManager.WriterManagerbin;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
