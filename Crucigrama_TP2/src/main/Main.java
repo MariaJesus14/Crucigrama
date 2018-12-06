@@ -17,11 +17,13 @@ public class Main {
 
    
     public static UsersList listManager = new UsersList ();
+    
     public static void main(String[] args) {
        Logic logic = new Logic();
        Start start = new Start();
-       logic.checkInput();
+//       logic.checkInput();
        start.setVisible(true);
+       
     }
     
 }

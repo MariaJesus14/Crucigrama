@@ -17,89 +17,74 @@ package model;
 //(/).
 
 public class Word {
+
+    public Word(int row, int column, int numberWord, String orientation, String lettler, String wordHelp) {
+        this.row = row;
+        this.column = column;
+        this.numberWord = numberWord;
+        this.orientation = orientation;
+        this.lettler = lettler;
+        this.wordHelp = wordHelp;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public int getNumberWord() {
+        return numberWord;
+    }
+
+    public void setNumberWord(int numberWord) {
+        this.numberWord = numberWord;
+    }
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
+    }
+
+    public String getLettler() {
+        return lettler;
+    }
+
+    public void setLettler(String lettler) {
+        this.lettler = lettler;
+    }
+
+    public String getWordHelp() {
+        return wordHelp;
+    }
+
+    public void setWordHelp(String wordHelp) {
+        this.wordHelp = wordHelp;
+    }
  
-    private final static String V= "V";
-    private final static String H= "H";
-    private String word;
-    private String track;
-//    String rows= Integer.toString(row);
-//    String columns= Integer.toString(column);
-//    String initialindexs=Integer.toString(initialindex);
-//    String finalindexs=Integer.toString(finalindex);
-//   String numwords=Integer.toString(numword);
+    private int row;
+    private int column;
+    private int numberWord;
+    private String orientation;
+    private String lettler;
+    private String wordHelp;
+    
 
     public Word() {
     }
 
-    public Word(int row, int column, int initialindex, int finalindex, int numword, String word, String track) {
-//        this.row = row;
-//        this.column = column;
-//        this.initialindex = initialindex;
-//        this.finalindex = finalindex;
-//        this.numword = numword;
-        this.word = word;
-        this.track = track;
-    }
-
-//    public int getRow() {
-//        return row;
-//    }
-//
-//    public void setRow(String row) {
-//        this.rows = row;
-//    }
-//
-//    public int getColumn() {
-//        return column;
-//    }
-//
-//    public void setColumn(String column) {
-//        this.columns = column;
-//    }
-//
-//    public int getInitialindex() {
-//        return initialindex;
-//    }
-//
-//    public void setInitialindex(String initialindex) {
-//        this.initialindexs = initialindex;
-//    }
-//
-//    public int getFinalindex() {
-//        return finalindex;
-//    }
-//
-//    public void setFinalindex(String finalindex) {
-//        this.finalindexs= finalindex;
-//    }
-//
-//    public int getNumword() {
-//        return numword;
-//    }
-//
-//    public void setNumword(String numword) {
-//        this.numwords = numword;
-//    }
-
-    public String getWord() {
-        return word;
-    }
-
-    public void setWord(String word) {
-        this.word = word;
-    }
-
-    public String getTrack() {
-        return track;
-    }
-
-    public void setTrack(String track) {
-        this.track = track;
-    }
-    
-    
-     public String toFileString(){
-         return word+"-"+track;
-     }
     
 }

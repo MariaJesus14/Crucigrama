@@ -44,11 +44,9 @@ public class Levels extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione el nivel del juego");
 
         cbLevels.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
-        cbLevels.setForeground(new java.awt.Color(0, 0, 0));
         cbLevels.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Medio", "Dificil", "Muy Dificil", " " }));
         cbLevels.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -62,7 +60,6 @@ public class Levels extends javax.swing.JDialog {
         });
 
         jButton1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Jugar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +68,6 @@ public class Levels extends javax.swing.JDialog {
         });
 
         jButton2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +91,7 @@ public class Levels extends javax.swing.JDialog {
                         .addGap(80, 80, 80)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
+                        .addGap(178, 178, 178)
                         .addComponent(cbLevels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
@@ -104,9 +100,9 @@ public class Levels extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addGap(68, 68, 68)
+                .addGap(53, 53, 53)
                 .addComponent(cbLevels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -121,7 +117,7 @@ public class Levels extends javax.swing.JDialog {
     }//GEN-LAST:event_cbLevelsActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Game game = new Game(this,true);
+        Game game = new Game(this,true, 1);
         game.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -12,7 +12,9 @@ import java.util.Scanner;
  * @author Usuario
  */
 public class Logic { 
+    
     GestorEs gestor = new GestorEs();
+    
     public void checkInput (){
         String letters;
         Scanner scan = new Scanner (System.in);

@@ -5,22 +5,91 @@
  */
 package View;
 
+import com.sun.javafx.geom.Matrix3f;
+import dataset.LogicGame;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.TextField;
 
 /**
  *
- * @author usuario
+ * @author Roibin
  */
 public class Game extends javax.swing.JDialog {
 
     /**
      * Creates new form Game
+     * @param parent
      */
-    public Game(javax.swing.JDialog parent, boolean modal) {
+    public Game(javax.swing.JDialog parent, boolean modal, int level) {
         super(parent, modal);
-        initComponents();
-         setLocationRelativeTo(parent);
+        try {
+            initComponents();
+            setLocationRelativeTo(parent);
+            
+            LogicGame login = new LogicGame();
+            login.LGame(level);
+//            this.setResizable(false); 
+            
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "El archivo no ha sido encontrado");
+            dispose();
+            this.setVisible(false);
+            Start star = new Start();
+            star.setVisible(true);
+        }
+        
+    }
+
+    public Game() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Game(String[][] matrixGame) {
+//        this.setResizable(false); 
+        this.setBounds(200, 20, 300, 100);
+        int row = matrixGame.length;
+        int column = matrixGame[0].length;
+        TextField[][] matrixTextField = new TextField[row][column];
+        int count = 1;
+        int x= 0;
+        int y = 0;
+        for (int i = 0; i < matrixGame.length; i++) {
+            for (int j = 0; j < matrixGame[i].length; j++, x++, y++) {
+                if(matrixGame[i][j] != null){
+                  TextField text = new TextField();
+                  text.setText("pureba");
+                  this.add(text);
+                  text.setVisible(true);
+//                matrixTextField[i][j] = new TextField();
+//                matrixTextField[i][j].setText(matrixGame[i][j]);
+//                matrixTextField[i][j].setLocation(x, y);
+//                matrixTextField[i][j].setVisible(true);
+//                add(matrixTextField[i][j]);
+                }else{
+                  TextField text = new TextField();
+                  text.setText("pureba");
+                  text.setBounds(220, 30, 30, 100);
+                  text.setForeground(Color.black);
+                  text.setVisible(true);
+                  this.add(text);
+                  
+//                matrixTextField[i][j] = new TextField();
+//                matrixTextField[i][j].setText("");
+//                this.setBounds(230, 30, 200, 30);
+//                matrixTextField[i][j].setForeground(Color.black);
+//                matrixTextField[i][j].setVisible(true);
+//                add(matrixTextField[i][j]);
+                }
+            }
+        }
     }
     private void initPanel (){
          int column;
@@ -43,28 +112,13 @@ public class Game extends javax.swing.JDialog {
 
         jProgressBar1 = new javax.swing.JProgressBar();
         jTextField1 = new javax.swing.JTextField();
-        pnMatrix = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        pnMatrix.setBackground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout pnMatrixLayout = new javax.swing.GroupLayout(pnMatrix);
-        pnMatrix.setLayout(pnMatrixLayout);
-        pnMatrixLayout.setHorizontalGroup(
-            pnMatrixLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
-        );
-        pnMatrixLayout.setVerticalGroup(
-            pnMatrixLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
-        );
-
         jButton1.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Pistas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,21 +130,15 @@ public class Game extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(pnMatrix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(469, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(69, 69, 69))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnMatrix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addContainerGap(366, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(20, 20, 20))
         );
@@ -107,6 +155,5 @@ public class Game extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JPanel pnMatrix;
     // End of variables declaration//GEN-END:variables
 }

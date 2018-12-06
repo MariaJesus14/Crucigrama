@@ -33,8 +33,8 @@ public class ReaderManagertxt {
 //           word.setInitialindex(datos[2]);
 //           word.setFinalindex(datos[3]);
 //            word.setNumword(datos[4]);
-            word.setWord(datosWord[0]);
-            word.setTrack(datosWord[1]);
+//            word.setWord(datosWord[0]);
+//            word.setTrack(datosWord[1]);
             
             
         }
