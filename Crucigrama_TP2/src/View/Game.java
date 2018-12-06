@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package View;
-
-import java.awt.GridLayout;
 import model.TextField;
+import model.Word;
 
 /**
  *
@@ -17,19 +16,36 @@ public class Game extends javax.swing.JDialog {
     /**
      * Creates new form Game
      */
+    int rows=5,column=5;
+    Word word = new Word();
+    TextField [][] tf = new TextField[rows][column];
     public Game(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
          setLocationRelativeTo(parent);
     }
     private void initPanel (){
-         int column;
-//         int rows;
-//         GridLayout grid = new GridLayout (rows, columns);
-         
-         
-         TextField text = new TextField();
- 
+//         int column=3;
+//         int rows=3;
+//        GridLayout grid = new GridLayout (rows, column);
+//        pnMatrix.setLayout(grid);
+//         TextField newGridButtom = new TextField();
+//            pnMatrix.add(newGridButtom);
+//         
+//         
+//       //  TextField text = new TextField();
+// 
+    }
+    public void TextField(){
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < column; j++) {
+                tf[rows][column]=new TextField(45*column,32*rows,55,45);
+                tf[rows][column].setName(rows, column);
+                pnMatrix.add(tf[rows][column]);
+            }
+            
+        }
+  
     }
   
     /**
@@ -45,6 +61,10 @@ public class Game extends javax.swing.JDialog {
         jTextField1 = new javax.swing.JTextField();
         pnMatrix = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ltHorizontal = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ltVertical = new javax.swing.JList<>();
 
         jTextField1.setText("jTextField1");
 
@@ -56,11 +76,11 @@ public class Game extends javax.swing.JDialog {
         pnMatrix.setLayout(pnMatrixLayout);
         pnMatrixLayout.setHorizontalGroup(
             pnMatrixLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         pnMatrixLayout.setVerticalGroup(
             pnMatrixLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
+            .addGap(0, 309, Short.MAX_VALUE)
         );
 
         jButton1.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
@@ -72,27 +92,52 @@ public class Game extends javax.swing.JDialog {
             }
         });
 
+        ltHorizontal.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        ltHorizontal.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ltHorizontalValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(ltHorizontal);
+
+        ltVertical.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(ltVertical);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(pnMatrix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(69, 69, 69))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addComponent(pnMatrix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnMatrix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -102,11 +147,19 @@ public class Game extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ltHorizontalValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ltHorizontalValueChanged
+       
+    }//GEN-LAST:event_ltHorizontalValueChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JList<String> ltHorizontal;
+    private javax.swing.JList<String> ltVertical;
     private javax.swing.JPanel pnMatrix;
     // End of variables declaration//GEN-END:variables
 }

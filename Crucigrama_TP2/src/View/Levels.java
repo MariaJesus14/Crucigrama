@@ -19,7 +19,7 @@ public class Levels extends javax.swing.JDialog {
      * Creates new form Levels
      */
 
-  
+       Game game = new Game(this, true);
     
     public Levels(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -37,9 +37,9 @@ public class Levels extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        btPlay = new javax.swing.JButton();
+        btBack = new javax.swing.JButton();
         cbLevels = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,37 +47,27 @@ public class Levels extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione el nivel del juego");
 
+        btPlay.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        btPlay.setForeground(new java.awt.Color(0, 0, 0));
+        btPlay.setText("Jugar");
+        btPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPlayActionPerformed(evt);
+            }
+        });
+
+        btBack.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        btBack.setForeground(new java.awt.Color(0, 0, 0));
+        btBack.setText("Regresar");
+        btBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBackActionPerformed(evt);
+            }
+        });
+
         cbLevels.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
         cbLevels.setForeground(new java.awt.Color(0, 0, 0));
-        cbLevels.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Medio", "Dificil", "Muy Dificil", " " }));
-        cbLevels.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbLevelsItemStateChanged(evt);
-            }
-        });
-        cbLevels.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbLevelsActionPerformed(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Jugar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Regresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        cbLevels.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil ", "Medio", "Dificil", "Muy Dificil" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,59 +75,61 @@ public class Levels extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jButton2)
+                .addComponent(btBack)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btPlay)
                 .addGap(117, 117, 117))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(cbLevels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(80, 80, 80)
+                .addComponent(jLabel1)
                 .addContainerGap(128, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbLevels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(233, 233, 233))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addGap(68, 68, 68)
+                .addGap(66, 66, 66)
                 .addComponent(cbLevels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btPlay)
+                    .addComponent(btBack))
                 .addGap(36, 36, 36))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbLevelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLevelsActionPerformed
+    private void btPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPlayActionPerformed
+       int i = cbLevels.getSelectedIndex();
        
-    }//GEN-LAST:event_cbLevelsActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Game game = new Game(this,true);
-        game.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void cbLevelsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbLevelsItemStateChanged
+         if (i==0) {
+           
+         game.setVisible(true);
+         game.TextField(); 
+        }else {
+             
+         }
+            
         
-    }//GEN-LAST:event_cbLevelsItemStateChanged
+       
+        
+    }//GEN-LAST:event_btPlayActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btBack;
+    private javax.swing.JButton btPlay;
     private javax.swing.JComboBox<String> cbLevels;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

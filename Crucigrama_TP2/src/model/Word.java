@@ -18,8 +18,8 @@ package model;
 
 public class Word {
  
-    private final static String V= "V";
-    private final static String H= "H";
+    public final static String V= "V";
+    public final static String H= "H";
     private String word;
     private String track;
 //    String rows= Integer.toString(row);
