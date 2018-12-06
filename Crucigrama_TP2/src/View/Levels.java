@@ -38,7 +38,7 @@ public class Levels extends javax.swing.JDialog {
         cbLevels = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         btBack = new javax.swing.JButton();
-        cbLevels1 = new javax.swing.JComboBox<>();
+        cbLevels2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -78,9 +78,14 @@ public class Levels extends javax.swing.JDialog {
         });
         getContentPane().add(btBack);
 
-        cbLevels1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
-        cbLevels1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil ", "Medio", "Dificil", "Muy Dificil" }));
-        getContentPane().add(cbLevels1);
+        cbLevels2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 14)); // NOI18N
+        cbLevels2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil ", "Medio", "Dificil", "Muy Dificil" }));
+        cbLevels2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLevels2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbLevels2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -112,11 +117,15 @@ private void cbLevelsItemStateChanged(java.awt.event.ItemEvent evt) {
         dispose();
     }//GEN-LAST:event_btBackActionPerformed
 
+    private void cbLevels2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLevels2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbLevels2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBack;
     private javax.swing.JComboBox<String> cbLevels;
-    private javax.swing.JComboBox<String> cbLevels1;
+    private javax.swing.JComboBox<String> cbLevels2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

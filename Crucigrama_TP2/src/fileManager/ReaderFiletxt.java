@@ -19,7 +19,6 @@ import model.Word;
  * @author Roibin
  */
 public class ReaderFiletxt {
-
     String level1 = "C:\\Prueba\\facil\\1.txt";
 
     public CrossWord readFileEasy(String root, int lengArray) throws IOException {
